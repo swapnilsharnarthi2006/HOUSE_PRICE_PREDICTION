@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>🏠 House Price Prediction</h1>
+
+            <p>
+                Machine Learning powered house price prediction
+            </p>
+
+        </div>
+
+
+        <form method="POST">
+
+            <div class="form-grid">
+
+
+                <!-- Median Income -->
+
+                <div class="input-group">
+
+                    <label>Median Income</label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="MedInc"
+                        placeholder="Example: 5.0"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- House Age -->
+
+                <div class="input-group">
+
+                    <label>House Age</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="HouseAge"
+                        placeholder="Example: 20"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Average Rooms -->
+
+                <div class="input-group">
+
+                    <label>Average Rooms</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="AveRooms"
+                        placeholder="Example: 6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Average Bedrooms -->
+
+                <div class="input-group">
+
+                    <label>Average Bedrooms</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="AveBedrms"
+                        placeholder="Example: 1"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Population -->
+
+                <div class="input-group">
+
+                    <label>Population</label>
+
+                    <input
+                        type="number"
+                        step="1"
+                        name="Population"
+                        placeholder="Example: 1000"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Average Occupancy -->
+
+                <div class="input-group">
+
+                    <label>Average Occupancy</label>
+
+                    <input
+                        type="number"
+                        step="0.1"
+                        name="AveOccup"
+                        placeholder="Example: 3"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Latitude -->
+
+                <div class="input-group">
+
+                    <label>Latitude</label>
+
+                    <input
+                        type="number"
+                        step="0.0001"
+                        name="Latitude"
+                        placeholder="Example: 34.0"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Longitude -->
+
+                <div class="input-group">
+
+                    <label>Longitude</label>
+
+                    <input
+                        type="number"
+                        step="0.0001"
+                        name="Longitude"
+                        placeholder="Example: -118.0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button type="submit">
+
+                Predict House Price
+
+            </button>
+
+        </form>
+
+
+        {% if prediction is not none %}
+
+        <div class="result">
+
+            <p>Predicted House Price</p>
+
+            <h2>
+                ${{ "{:,.2f}".format(prediction) }}
+            </h2>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+</body>
+
+</html>
